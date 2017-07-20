@@ -1,0 +1,227 @@
+ <!DOCTYPE html>
+  <html>
+    <head>
+<title>CHECK-OUT</title>
+    <style>
+  body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+      
+    </style>
+    <!-- getmdl -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://code.getmdl.io/1.1.1/material.indigo-pink.min.css">
+<script defer src="https://code.getmdl.io/1.1.1/material.min.js"></script>   
+<!--getmdl-select-->   
+<link rel="stylesheet" href="https://cdn.rawgit.com/CreativeIT/getmdl-select/master/getmdl-select.min.css">
+<script defer src="https://cdn.rawgit.com/CreativeIT/getmdl-select/master/getmdl-select.min.js"></script>
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="../static/css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+
+
+
+
+    </head>
+
+    <body>
+   
+<nav>
+    <div class="nav-wrapper  blue lighten-1">
+      <a href="#" class="brand-logo center">CHECK OUT</a>
+      
+    </div>
+  </nav>
+
+
+<!--
+<div id="showf" class="row">
+      <div class=" m5">
+        <div class="card-panel teal z-depth-3">
+          <span class="white-text">Verification link Send to your email address verify your email to get started
+          </span>
+        </div>
+      </div>
+    </div>
+-->
+
+  <main>
+    <center>
+      
+      <div class="section"></div>
+
+      <!--Email Verify-->
+      
+
+    <!--*********************-->
+     
+<!--
+
+
+      <div id="hidef" class="container">
+      {%for i in all_checked_in%}
+        <div class="z-depth-3 grey lighten-4 row" style="display: inline-block; padding: 10px 10px 0px 10px; border: 0.5px solid #EEE; margin-left: 50px;">
+
+          <form class="col s12" style="width: 320px;" action="/checkout" method="post">
+            
+            <div class='row'>
+              <div class='input-field col s12'>
+              <div align="left">Visitor's Name</div>
+                <input type="text" id='email' value="{{i.visitor_name}}" readonly name="visitor_name" style="font-size: 20px; font-weight: bold;"/>
+                
+              </div>
+            </div>
+
+            <div class='row'>
+              <div class='input-field col s12'>
+              <div align="left">Visitor's Email</div>
+                <input type="text" id='uname' value="{{i.visitor_email}}" readonly name="email" style="font-size: 20px; font-weight: bold;" />
+                
+              </div>
+            </div>
+
+            <div class='row'>
+              <div class='input-field col s12'>
+              <div align="left">Visitor's Phone Number</div>
+                <input type="text" id='uname' value="{{i.visitor_phone}}" readonly name="phone" style="font-size: 20px; font-weight: bold;"/>
+                
+              </div>
+            </div>
+
+            <div class='row'>
+              <div class='input-field col s12'>
+              <div align="left">Host Name</div>
+                <input type="text" id='uname' value="{{i.host_name}}" readonly name="host_name" style="font-size: 20px; font-weight: bold;"/>
+                
+              </div>
+            </div>
+
+            <br />
+            <center>
+              <div class='row'>
+                 <input type="submit" id="one" class="btn col s12 btn-large waves-effect green" value="CHECK-OUT" />
+              </div>
+              
+            </center>
+          </form>
+        </div>
+      {%endfor%}
+      </div>
+      
+
+      -->
+<form action="/checkout" method="post" >      
+<div style="align-self: center; width: 220px;">
+<div class='row'>
+        <div class='input-field col s12'>
+              <div align="left">Search by ID</div>
+                <input type="text" id='visitor_id' name="visitor_id" align="left" />
+        </div>
+</div>
+<div class="row">
+<input type="submit" id="one" class="btn col s12 btn-large waves-effect green" value="SEARCH" />
+</div>
+</div>
+</form>
+
+<br><br>
+
+{% if all_checked_in != "" %}
+      <div id="demo">
+  
+  <!-- Responsive table starts here -->
+  <!-- For correct display on small screens you must add 'data-title' to each 'td' in your table -->
+  <div class="table-responsive-vertical shadow-z-1">
+  <!-- Table starts here -->
+  <table id="table" class="table table-hover table-mc-light-blue">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Visitor's Photo</th>
+          <th>Webcam Pic</th>
+          <th>Visitor's Name</th>
+          <th>Visitor's Email</th>
+          <th>Visitor's Phone</th>
+          <th>Host Name</th>
+          <th>Time</th>
+          <th>Checkout</th>
+        </tr>
+      </thead>
+      <tbody>
+      {%set j = 1%}
+      {%for i in all_checked_in%}
+        <tr>
+          <td data-title="ID">{{j}}</td>
+          <td><img src="/image?id={{ids[j-1]}}"></td>
+          <td><img src="{{i.webcam}}"></td>
+          <td data-title="Name">{{i.visitor_name}}</td>
+          <td data-title="Link">{{i.visitor_email}}</td>
+          <td data-title="Status">{{i.visitor_phone}}</td>
+          <td data-title="Status">{{i.host_name}}</td>
+          <td data-title="Status">{{i.date}}</td>
+          <td>
+          	<a href="/checkedout?email={{i.visitor_email}}">
+          	<input type="submit" class="btn col s12 btn-large waves-effect green" value="CHECK-OUT" />
+          	</a>
+          </td>
+        </tr>
+        {%set j = j + 1%}
+        {%endfor%}
+      </tbody>
+    </table>
+  </div>
+  
+</div>
+
+{% endif %}
+
+
+  </center>
+  </main>
+
+<!--
+
+ <footer class="page-footer footer blue-grey darken-3">
+         
+          <div class="footer-copyright footer ">
+            <div class="container center ">
+          Made with ♥ by Neha
+            
+            </div>
+          </div>
+        </footer>
+-->
+<footer class="page-footer footer blue-grey darken-3">
+ <div class="footer-copyright">
+            <div class="container">
+            © 2017 Check-In Checkout App
+            
+            </div>
+          </div>
+        </footer>
+
+
+
+
+
+
+
+
+
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="../static/js/materialize.min.js"></script>
+      <script type="text/javascript" src="../static/js/login.js"></script>
+    </body>
+  </html>

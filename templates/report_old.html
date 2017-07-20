@@ -1,0 +1,430 @@
+ <!DOCTYPE html>
+  <html>
+    <head>
+<title>REPORT</title>
+    <style>
+  body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+      
+    </style>
+    <!-- getmdl -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://code.getmdl.io/1.1.1/material.indigo-pink.min.css">
+<script defer src="https://code.getmdl.io/1.1.1/material.min.js"></script>   
+<!--getmdl-select-->   
+<link rel="stylesheet" href="https://cdn.rawgit.com/CreativeIT/getmdl-select/master/getmdl-select.min.css">
+<script defer src="https://cdn.rawgit.com/CreativeIT/getmdl-select/master/getmdl-select.min.js"></script>
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="../static/css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<script src="https://code.jquery.com/jquery.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/momentjs/2.10.6/moment-with-locales.min.js"></script>
+<style type="text/css">
+  
+  #fdate-picker {
+     width: 100%;
+}
+.fdate-holder {
+     padding: 0 2px;
+     width: 33.33333%;
+     text-align: center;
+     float: left;
+}
+
+.fdate-control {
+     border: 1px solid #CCC;
+     background-color: #DDD;
+     padding: 4px 0;
+     cursor: pointer;
+     color: #555;
+}
+
+.fdbc-top {
+     -webkit-border-top-left-radius: 5px;
+     -webkit-border-top-right-radius: 5px;
+     -moz-border-radius-topleft: 5px;
+     -moz-border-radius-topright: 5px;
+     border-top-left-radius: 5px;
+     border-top-right-radius: 5px;
+}
+
+.fdbc-bot {
+     -webkit-border-bottom-left-radius: 5px;
+     -webkit-border-bottom-right-radius: 5px;
+     -moz-border-radius-bottomleft: 5px;
+     -moz-border-radius-bottomright: 5px;
+     border-bottom-left-radius: 5px;
+     border-bottom-right-radius: 5px;  
+}
+
+.fdate-display {
+     padding: 4px;
+     font-size: 30px;
+     border-left: 1px solid #CCC;
+     border-right: 1px solid #CCC;
+     color: #555;
+}
+
+#date-group-holder {
+     padding: 0 2px 8px 2px;
+}
+
+.fd-button-holder {
+     margin: 8px 2px 0 2px;
+}
+
+.fdate-label-holder span {
+     font-weight: 600;
+     font-family: Verdana;
+     font-size: 12px;
+     color: #555;
+     display: inline-block;
+     width: 50%;
+     text-align: center;
+}
+</style>
+<script src="http://code.jquery.com/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script src="http://code.jquery.com/ui/1.11.0/jquery-ui.min.js" type="text/javascript"></script>
+<script type="text/javascript">$(document).ready(function(){$("#textbox1").wijinputdate({showTrigger:true});});</script>
+<script type="text/javascript">$(document).ready(function(){$("#textbox2").wijinputdate({showTrigger:true});});</script>
+
+<link href="http://cdn.wijmo.com/themes/aristo/jquery-wijmo.css" rel="stylesheet" type="text/css"/>
+
+<!--Wijmo Widgets CSS-->
+<link href="http://cdn.wijmo.com/jquery.wijmo-pro.all.3.20172.118.min.css" rel="stylesheet" type="text/css"/>
+
+<!--Wijmo Widgets JavaScript-->
+<script src="http://cdn.wijmo.com/jquery.wijmo-open.all.3.20161.90.min.js" type="text/javascript"></script>
+<script src="http://cdn.wijmo.com/jquery.wijmo-pro.all.3.20161.90.min.js" type="text/javascript"></script>
+<script src="http://cdn.wijmo.com/interop/wijmo.data.ajax.3.20161.90.js" type="text/javascript"></script>
+
+    </head>
+
+    <body>
+   
+<nav>
+    <div class="nav-wrapper  blue lighten-1">
+      <a href="#" class="brand-logo center">REPORT</a>
+      
+    </div>
+  </nav>
+
+  <main>
+    <center>
+      
+      <div class="section"></div>
+
+      <!--Email Verify-->
+      
+
+    <!--*********************-->
+     
+<!--
+      <div id="hidef" class="container">
+        <div class="z-depth-3 grey lighten-4 row" style="display: inline-block; padding: 10px 10px 0px 10px; border: 0.5px solid #EEE;">
+
+          <form class="col s12" style="width: 320px;" method="post" action="/generatereport">
+            
+
+            <div class='row'>
+              <div class='input-field col s12'>
+                <input type="text" id='email' name="sday" placeholder="Start Day" />
+                
+              </div>
+            </div>
+
+            <div class='row'>
+              <div class='input-field col s12'>
+              
+                <input type="text" id='uname' name="smonth" placeholder="Start Month"/>
+                
+              </div>
+            </div>
+
+
+            <div class='row'>
+              <div class='input-field col s12'>
+              
+                <input type="text" id='phone' name="syear" placeholder="Start Year"/>
+            </div>
+            </div>
+
+            <div class='row'>
+              <div class='input-field col s12'>
+              
+                <input type="text" id='email' name="eday" placeholder="End Day"/>
+                
+              </div>
+            </div>
+
+            <div class='row'>
+              <div class='input-field col s12'>
+              
+                <input type="text" id='uname' name="emonth" placeholder="End Month"/>
+                
+              </div>
+            </div>
+
+
+            <div class='row'>
+              <div class='input-field col s12'>
+             
+                <input type="text" id='phone' name="eyear" placeholder="End year"/>
+            </div>
+            </div>
+            <br />
+            <center>
+              <div class='row'>
+                <input type="submit" id="one" class="btn col s12 btn-large waves-effect " value="GENERATE REPORT" />
+              </div>
+            </center>
+          </form>
+        </div>
+      </div>
+      
+-->
+
+<div class="well">
+         <body>
+          <form action="/generatereport" method="post">
+            Start Date :<input type="text" id="textbox1" name="start_date" />
+            End Date : <input type="text" id="textbox2" name="end_date" />
+            <br>
+            <input type="submit" id="one" class="btn col s12 btn-large waves-effect green" value="SEARCH" />
+
+            </form>
+    </div>
+<!--
+<div id="fdate-picker" style="
+    width: 50%;
+    margin: 0 auto;">
+     <div class="fdate-label-holder">
+          <span>Start Date</span><span>End Date</span>
+     </div>
+     <div id="date-group-holder">
+          <div class="btn-group btn-group-justified" role="group" data-toggle="buttons">
+            <label id="starttime-holder" class="fd-chooser btn btn-default active">
+              <input type="radio" name="options" id="starttime" autocomplete="off" checked>Jan 19 2016
+            </label>
+            <label id="endtime-holder" class="fd-chooser btn btn-default">
+              <input type="radio" name="options" id="endtime" autocomplete="off" checked>May 20 2016
+            </label>
+          </div>
+     </div>
+     <div class="clearfix">
+          <div id="fdate-month" class="fdate-holder">
+               <div fdt="month" fdv="1"  class="fdate-control fdbc-top"><span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span></div>
+               <div class="fdate-display">Jan</div>
+               <div fdt="month" fdv="-1" class="fdate-control fdbc-bot"><span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></div>
+          </div>
+          <div id="fdate-days" class="fdate-holder">
+               <div fdt="days" fdv="1" class="fdate-control fdbc-top"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></div>
+               <div class="fdate-display">19</div>
+               <div fdt="days" fdv="-1" class="fdate-control fdbc-bot"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></div>
+          </div>
+          <div id="fdate-year" class="fdate-holder">
+               <div fdt="year" fdv="1" class="fdate-control fdbc-top"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></div>
+               <div class="fdate-display">2016</div>
+               <div fdt="year" fdv="-1" class="fdate-control fdbc-bot"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></div>
+          </div>
+     </div>
+     <div class="fd-button-holder">
+     <form action="/generatereport" method="post">
+      <input type="hidden" name="sday" id="sday">
+      <input type="hidden" name="smonth" id="smonth">
+      <input type="hidden" name="syear" id="syear">
+      <input type="hidden" name="eday" id="eday">
+      <input type="hidden" name="emonth" id="emonth">
+      <input type="hidden" name="eyear" id="eyear">
+      <input type="submit" class="btn btn-info btn-block">
+     </form>
+     </div>
+</div>
+-->
+{%if history != ""%}
+
+ <div id="demo">
+  
+  <!-- Responsive table starts here -->
+  <!-- For correct display on small screens you must add 'data-title' to each 'td' in your table -->
+  <div class="table-responsive-vertical shadow-z-1">
+  <!-- Table starts here -->
+  <table id="table" class="table table-hover table-mc-light-blue">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Visitor's Photo</th>
+          <th>Webcam Photo</th>
+          <th>Visitor's Name</th>
+          <th>Visitor's Email</th>
+          <th>Visitor's Phone</th>
+          <th>Host Name</th>
+          <th>Checkin Time</th>
+          <th>Checkout Time</th>
+        </tr>
+      </thead>
+      <tbody>
+      {%set j = 1%}
+      {%for i in history%}
+        <tr>
+          <td data-title="ID">{{j}}</td>
+          <td><img src="/img?id={{ids[j-1]}}"></td>
+          <td><img src="{{i.webcam}}"></td>
+          <td data-title="Name">{{i.visitor_name}}</td>
+          <td data-title="Link">{{i.visitor_email}}</td>
+          <td data-title="Status">{{i.visitor_phone}}</td>
+          <td data-title="Status">{{i.host_name}}</td>
+          <td data-title="Status">{{i.checkin_date}}</td>
+          <td>{{i.checkout_date}}</td>
+        </tr>
+        {%set j = j + 1%}
+        {%endfor%}
+      </tbody>
+    </table>
+  </div>
+  
+</div>
+{%endif%}
+
+  </center>
+  </main>
+
+<!--
+ <footer class="page-footer footer blue-grey darken-3">
+         
+          <div class="footer-copyright footer ">
+            <div class="container center ">
+          Made with ♥ by Neha
+            
+            </div>
+          </div>
+        </footer>
+-->
+<footer class="page-footer footer blue-grey darken-3">
+ <div class="footer-copyright">
+            <div class="container">
+            © 2017 Check-In Checkout App
+            
+            </div>
+          </div>
+        </footer>
+
+
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="../static/js/materialize.min.js"></script>
+      <script type="text/javascript" src="../static/js/login.js"></script>
+      <script type="text/javascript">
+  function FDATE(id){
+  this.jqDom = $(id);
+  this.activeChooserId = 'starttime-holder';
+  var self = this;
+
+  $(this.jqDom).find('.fd-chooser').click(function(){
+       //set the visible chooser date
+       chDate = $(this).text();
+       chMoment = moment(chDate, "MMM D YYYY");
+       
+       $(self.jqDom).find('#fdate-month').find('.fdate-display').text(chMoment.format("MMM"));
+       $(self.jqDom).find('#fdate-days').find('.fdate-display').text(chMoment.format("D"));
+       $(self.jqDom).find('#fdate-year').find('.fdate-display').text(chMoment.format("YYYY"));
+       
+       //ensure the proper clicked chooser is highlighted
+       $(self.jqDom).find('.fd-chooser').removeClass('active');
+       $(this).addClass('active');
+       
+       //store which chooser is active
+       newId = $(this).attr('id');
+       self.activeChooserId = newId;
+  });
+     
+  $(this.jqDom).find('.fdate-control').click(function(){
+       //get the type of change and the value of the change
+       type = $(this).attr('fdt');
+       value = $(this).attr('fdv');
+
+       
+       //grab the current date items
+       month = $(self.jqDom).find('#fdate-month').find('.fdate-display').html();
+       day = $(self.jqDom).find('#fdate-days').find('.fdate-display').html();
+       year = $(self.jqDom).find('#fdate-year').find('.fdate-display').html();
+       //assemble the date
+       curDate = month + " " + day + " " + year;
+       
+       //create a moment and increment it
+       curMoment = moment(curDate, "MMM D YYYY");
+       curMoment.add(value, type);
+       
+       if(self.isBadTimeOverlap(curMoment)){
+            console.log('OVERLAP TRUE');
+           
+            return;
+       }
+       
+       
+       //get the new date pieces
+       newMonth = curMoment.format("MMM");
+       newDay = curMoment.format("D");
+       newYear = curMoment.format("YYYY");
+       
+       if(self.activeChooserId == "starttime-holder"){ //starttime acive
+               document.getElementById("sday").value = curMoment.format("D");
+               document.getElementById("smonth").value = curMoment.format("M");
+               document.getElementById("syear").value = curMoment.format("YYYY");
+          } else { //endtime active
+               document.getElementById("eday").value = curMoment.format("D");
+               document.getElementById("emonth").value = curMoment.format("M");
+               document.getElementById("eyear").value = curMoment.format("YYYY");
+          }
+
+       //update the dom
+       $(self.jqDom).find('#fdate-month').find('.fdate-display').text(newMonth);
+       $(self.jqDom).find('#fdate-days').find('.fdate-display').text(newDay);
+       $(self.jqDom).find('#fdate-year').find('.fdate-display').text(newYear);
+       
+       $(self.jqDom).find('.fd-chooser.active').text(curMoment.format("MMM D YYYY"));
+       
+      
+  });  
+     
+     this.isBadTimeOverlap = function(newTimeMoment){
+          minRange = 1;
+          
+          if(self.activeChooserId == "starttime-holder"){ //starttime acive
+               otherTime = $(self.jqDom).find('#endtime-holder').text().trim();
+               otherMom = moment(otherTime, "MMM D YYYY");
+               tDiff = otherMom.diff(newTimeMoment, 'days');
+          } else { //endtime active
+               otherTime = $(self.jqDom).find('#starttime-holder').text().trim();
+               otherMom = moment(otherTime, "MMM D YYYY");
+               tDiff = newTimeMoment.diff(otherMom, 'days');
+          }
+          
+          if(tDiff <= minRange){
+               alert('The new start time must be ' + minRange +' days earlier than the end date.');
+               return true;
+          }
+         
+          return false;
+     };
+}
+
+var test = new FDATE('#fdate-picker');
+
+</script>
+    </body>
+  </html>

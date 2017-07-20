@@ -1,0 +1,8 @@
+@media (max-width: 767px) {
+  .read-more {
+    display: none;
+  }
+}
+.read-more{
+	display: block;
+}
