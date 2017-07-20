@@ -76,12 +76,20 @@
 			
 			<div class='row'>
               <div class='input-field col s12'>
+              <div align="left">Enter your Name</div>
+                <input type="text" id='uname' name="name" />
+                
+              </div>
+            </div>
+<!--
+			<div class='row'>
+              <div class='input-field col s12'>
               <div align="left">Enter your ID</div>
                 <input type="text" id='visitor_id' name="visitor_id" />
                 
               </div>
             </div>
-
+-->
             <div class='row'>
               <div class='input-field col s12'>
               <div align="left">Enter your Email</div>
@@ -90,13 +98,24 @@
               </div>
             </div>
 
+
             <div class='row'>
               <div class='input-field col s12'>
-              <div align="left">Enter your Name</div>
-                <input type="text" id='uname' name="name" />
-                
-              </div>
+              <div align="left">Enter your Phone Number</div>
+                <input type="text" id='phone' name="phone" />
             </div>
+            </div>
+
+            <div class="mdl-select mdl-js-select mdl-select--floating-label row">
+        <select class="mdl-select__input" id="host" name="host">
+          <option value=""></option>
+          {%for i in hosts%}
+              <option value="{{i.name}}">{{i.name}}: {{i.email}}</option>
+          {%endfor%}
+          
+        </select>
+        <label class="mdl-select__label" for="host">Select the Host</label>
+      </div>
 
 	    
 	   <div class='row'>
@@ -127,7 +146,6 @@
 
 <br>
 
-<br><br>
 <div class="camera" id="webcamera" style="display: none;">
     <video id="video">Video stream not available.</video>
     <button id="startbutton">Take photo</button> 
@@ -138,25 +156,7 @@
     <img id="photo" alt="The screen capture will appear in this box."> 
   </div>
             <br />
-          <div class="mdl-select mdl-js-select mdl-select--floating-label row">
-        <select class="mdl-select__input" id="host" name="host">
-          <option value=""></option>
-          {%for i in hosts%}
-              <option value="{{i.name}}">{{i.name}}: {{i.email}}</option>
-          {%endfor%}
           
-        </select>
-        <label class="mdl-select__label" for="host">Select the Host</label>
-      </div>
-
-            <div class='row'>
-              <div class='input-field col s12'>
-              <div align="left">Enter your Phone Number</div>
-                <input type="text" id='phone' name="phone" />
-
-              
-            </div>
-            </div>
             
             <br>
             <center>
