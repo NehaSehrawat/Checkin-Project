@@ -16,6 +16,7 @@ import webapp2
 import requests_toolbelt.adapters.appengine
 from datetime import datetime
 from random import randint
+import time
 
 requests_toolbelt.adapters.appengine.monkeypatch()
 jinja_env = jinja2.Environment(autoescape=True,
@@ -132,6 +133,8 @@ class AddHostHandler(Handler):
         self.redirect('/')
 
 
+visitor_id_global = 1
+
 class CheckInHandler(Handler):
     def get(self):
         all_hosts = db.GqlQuery("select * from Hosts")
@@ -151,21 +154,11 @@ class CheckInHandler(Handler):
         if not valid_phone(phone):
             self.render("checkin.html", hosts=all_hosts, mssg="Invalid Phone Number !!")
             return
-        visitor_id = str(randint(99999, 99999999))
+	global visitor_id_global
+        visitor_id = str(visitor_id_global)
+	visitor_id_global += 1
         print visitor_id
         all_checked_in = db.GqlQuery("select * from CheckedIn")
-        id_found = False
-        for i in all_checked_in:
-            if visitor_id == i.visitor_id:
-                id_found = True
-                break
-        while id_found:
-            visitor_id = str(randint(99999, 99999999))
-            id_found = False
-            for i in all_checked_in:
-                if visitor_id == i.visitor_id:
-                    id_found = True
-                    break
         host = self.request.get("host")
         pic = ""
         pic_error = False
@@ -269,6 +262,8 @@ class CheckedOutHandler(Handler):
                 break
         if found:
             self.render("error.html", mssg="Checked Out Successfully !!", link="")
+	    time.sleep(1)
+	    self.redirect("/checkout")
         if not found:
             self.render("error.html", mssg="no such person checked in !!", link="")
 
@@ -307,7 +302,7 @@ class PermalinkHandler(Handler):
 
 class ReportHandler(Handler):
     def get(self):
-        self.render("report.html", history="", ids="")
+        self.render("report.html", history="", ids="", all_checkin="", idss="")
 
     def post(self):
         start_date = self.request.get("start_date")
@@ -341,13 +336,19 @@ class ReportHandler(Handler):
         all_history = CheckedOut.all()
         all_history.filter('checkin_date >=', start_datetime)
         all_history.filter('checkin_date <=', end_datetime)
+	all_checkin = CheckedIn.all()
+	all_checkin.filter("date >=", start_datetime)
+	all_checkin.filter("date <=", end_datetime)
+	idss = []
+	for i in all_checkin:
+	    idss.append(str(i.key().id()))
         for i in all_history:
             print i.checkin_date
             print i.visitor_name
         ids = []
         for i in all_history:
             ids.append(str(i.key().id()))
-        self.render("report.html", history=all_history, ids=ids, mssg="")
+        self.render("report.html", history=all_history, ids=ids, mssg="", all_checkin=all_checkin, idss=idss)
 
 
 class TestHandler(Handler):

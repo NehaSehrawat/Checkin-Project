@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7dc92e1a-645d-4176-abd8-ec455ccb22a9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/checkin.html" afterPath="$PROJECT_DIR$/templates/checkin.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/permalink.html" afterPath="$PROJECT_DIR$/templates/permalink.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/report.html" afterPath="$PROJECT_DIR$/templates/report.html" />
-    </list>
+    <list default="true" id="7dc92e1a-645d-4176-abd8-ec455ccb22a9" name="Default" comment="" />
     <ignored path="checkin-checkout.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />

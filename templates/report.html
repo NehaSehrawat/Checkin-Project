@@ -100,6 +100,39 @@
           <td data-title="Status">{{i.checkin_date}}</td>
           <td>{{i.checkout_date}}</td>
         </tr>
+	    {%set j = j + 1%}
+	    {%endfor%}
+	    </tbody>
+    </table>
+	    <br>
+	    <h2>Already Checked in</h2>
+	    <table id="table" class="table table-hover table-mc-light-blue">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Visitor's Photo</th>
+          <th>Webcam Photo</th>
+          <th>Visitor's Name</th>
+          <th>Visitor's Email</th>
+          <th>Visitor's Phone</th>
+          <th>Host Name</th>
+          <th>Checkin Time</th>
+        </tr>
+      </thead>
+      <tbody>
+      {%set k = 1%}
+      {%for i in all_checkin%}
+        <tr>
+          <td data-title="ID">{{j}}</td>
+          <td><img src="/image?id={{idss[k-1]}}"></td>
+          <td><img src="{{i.webcam}}"></td>
+          <td data-title="Name">{{i.visitor_name}}</td>
+          <td data-title="Link">{{i.visitor_email}}</td>
+          <td data-title="Status">{{i.visitor_phone}}</td>
+          <td data-title="Status">{{i.host_name}}</td>
+          <td data-title="Status">{{i.date}}</td>
+        </tr>
+        {% set k = k + 1%}
         {%set j = j + 1%}
         {%endfor%}
       </tbody>
