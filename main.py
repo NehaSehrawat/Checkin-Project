@@ -14,7 +14,7 @@ from google.appengine.ext import db
 from google.appengine.api import images
 import webapp2
 import requests_toolbelt.adapters.appengine
-from datetime import datetime
+from datetime import datetime, timedelta
 from random import randint
 import time
 
@@ -330,9 +330,14 @@ class ReportHandler(Handler):
         end_year = int(end_date[2])
         start_datetime = datetime(start_year, start_month, start_day)
         end_datetime = datetime(end_year, end_month, end_day)
-        if start_datetime >= end_datetime:
+	today_date = datetime.now()
+	if end_datetime > today_date:
+	    self.render("report.html", history="", ids="", mssg="End date should not be greater than today's date.")
+	    return
+	if start_datetime > end_datetime:
             self.render("report.html", history="", ids="", mssg="!! Start Date MUST be less than End Date !!")
             return
+	end_datetime += timedelta(hours=24)
         all_history = CheckedOut.all()
         all_history.filter('checkin_date >=', start_datetime)
         all_history.filter('checkin_date <=', end_datetime)
