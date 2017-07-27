@@ -108,6 +108,7 @@
       <thead>
         <tr>
           <th>S. No.</th>
+          <th>Visitor ID</th>
           <th>Visitor's Photo</th>
           <th>Webcam Photo</th>
           <th>Visitor's Name</th>
@@ -123,8 +124,9 @@
       {%for i in history%}
         <tr>
           <td data-title="ID">{{j}}</td>
-          <td><img src="/img?id={{ids[j-1]}}"></td>
-          <td><img src="{{i.webcam}}"></td>
+          <td>{{i.visitor_id}}</td>
+          <td><img src="/img?id={{ids[j-1]}}" width="150" height="150"></td>
+          <td><img src="{{i.webcam}}" width="150" height="150"></td>
           <td data-title="Name">{{i.visitor_name}}</td>
           <td data-title="Link">{{i.visitor_email}}</td>
           <td data-title="Status">{{i.visitor_phone}}</td>
@@ -142,6 +144,7 @@
       <thead>
         <tr>
           <th>ID</th>
+          <th>Visitor ID</th>
           <th>Visitor's Photo</th>
           <th>Webcam Photo</th>
           <th>Visitor's Name</th>
@@ -156,8 +159,9 @@
       {%for i in all_checkin%}
         <tr>
           <td data-title="ID">{{j}}</td>
-          <td><img src="/image?id={{idss[k-1]}}"></td>
-          <td><img src="{{i.webcam}}"></td>
+          <td>{{i.visitor_id}}</td>
+          <td><img src="/image?id={{idss[k-1]}}" width="150" height="150"></td>
+          <td><img src="{{i.webcam}}" width="150" height="150"></td>
           <td data-title="Name">{{i.visitor_name}}</td>
           <td data-title="Link">{{i.visitor_email}}</td>
           <td data-title="Status">{{i.visitor_phone}}</td>
