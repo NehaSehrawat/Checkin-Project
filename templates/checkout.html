@@ -165,8 +165,13 @@
         <tr>
           <td data-title="ID">{{j}}</td>
           <td data-title="ID">{{i.visitor_id}}</td>
-          <td><img src="/image?id={{ids[j-1]}}" width="150" height="150"></td>
+          <td><img src="/image?id={{ids[j-1]}}" width="150" height="150" alt="Not Found"
+                   onerror=this.src="../static/images/no_image.png"></td>
+          {% if i.webcam == ""%}
+          <td><img src="../static/images/no_image.png" width="150" height="150"></td>
+          {% else %}
           <td><img src="{{i.webcam}}" width="150" height="150"></td>
+          {% endif %}
           <td data-title="Name">{{i.visitor_name}}</td>
           <td data-title="Link">{{i.visitor_email}}</td>
           <td data-title="Status">{{i.visitor_phone}}</td>
