@@ -331,6 +331,9 @@ class ReportHandler(Handler):
         start_datetime = datetime(start_year, start_month, start_day)
         end_datetime = datetime(end_year, end_month, end_day)
 	today_date = datetime.now()
+	print start_datetime
+	print end_datetime
+	print today_date
 	if end_datetime > today_date:
 	    self.render("report.html", history="", ids="", mssg="End date should not be greater than today's date.")
 	    return
@@ -347,9 +350,11 @@ class ReportHandler(Handler):
 	idss = []
 	for i in all_checkin:
 	    idss.append(str(i.key().id()))
+	"""
         for i in all_history:
             print i.checkin_date
             print i.visitor_name
+	"""
         ids = []
         for i in all_history:
             ids.append(str(i.key().id()))
